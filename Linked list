@@ -1,1 +1,85 @@
 
+--- This is a Python program to create a linked list and display its elements.
+
+#Problem Description
+
+The program creates a linked list using data items input from the user and displays it.
+
+#Problem Solution
+
+1. Create a class Node with instance variables data and next.
+2. Create a class LinkedList with instance variables head and last_node.
+3. The variable head points to the first element in the linked list while last_node points to the last.
+4. Define methods append and display inside the class LinkedList to append data and display the linked list respectively.
+5. Create an instance of LinkedList, append data to it and display the list.
+
+#Program/Source Code
+
+# Here is the source code of a Python program to create a linked list and display its elements. The program output is shown below.
+
+class Node:
+    def __init__(self, data):
+       self.data = data
+       self.next = None
+ 
+class LinkedList:
+    def __init__(self):
+        self.head = None
+        self.last_node = None
+ 
+    def append(self, data):
+        if self.last_node is None:
+            self.head = Node(data)
+            self.last_node = self.head
+        else:
+            self.last_node.next = Node(data)
+            self.last_node = self.last_node.next
+ 
+    def display(self):
+        current = self.head
+        while current is not None:
+            print(current.data, end = ' ')
+            current = current.next
+            
+#Main Function 
+
+a_llist = LinkedList()
+n = int(input('How many elements would you like to add? '))
+for i in range(n):
+    data = int(input('Enter data item: '))
+    a_llist.append(data)
+print('The linked list: ', end = '')
+a_llist.display()
+
+
+#Program Explanation
+
+1. An instance of LinkedList is created.
+2. The user is asked for the number of elements they would like to add. This is stored in n.
+3. Using a loop, data from the user is appended to the linked list n times.
+4. The linked list is displayed.
+
+
+#Runtime Test Cases
+
+Case 1:
+How many elements would you like to add? 5
+Enter data item: 3
+Enter data item: -2
+Enter data item: 1
+Enter data item: 5
+Enter data item: 0
+The linked list: 3 -2 1 5 0 
+ 
+Case 2:
+How many elements would you like to add? 1
+Enter data item: 6
+The linked list: 6 
+ 
+Case 3:
+How many elements would you like to add? 4
+Enter data item: 2
+Enter data item: 9
+Enter data item: 3
+Enter data item: 2
+The linked list: 2 9 3 2
